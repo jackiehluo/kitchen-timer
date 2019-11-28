@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NewTimer } from "./components/NewTimer";
 import { Timer } from "./components/Timer";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
 
   return (
     <React.Fragment>
+      <NewTimer />
       {timers.map(timer => (
         <Timer initialSeconds={timer}></Timer>
       ))}
