@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
-import {Timer} from './components/Timer';
+import React, { useState } from "react";
+import { Timer } from "./components/Timer";
 
-class App extends Component {
-  render() {
-    return (
-      <Timer></Timer>
-    );
-  }
-}
+const App = () => {
+  const [timers, setTimers] = useState([]);
+
+  return (
+    <React.Fragment>
+      {timers.map(timer => (
+        <Timer initialSeconds={timer}></Timer>
+      ))}
+    </React.Fragment>
+  );
+};
 
 export default App;
