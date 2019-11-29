@@ -9,6 +9,7 @@
 button {
   height: 40px;
   padding: 4px 10px;
+  margin: 4px;
   background: none;
   border: 2px solid lightgreen;
   border-radius: 5px;
@@ -17,7 +18,14 @@ button {
 input {
   height: 40px;
   padding: 4px 10px;
+  margin: 4px;
   border: 2px solid pink;
   border-radius: 5px;
   font-size: 20px;
+}
+
+.new-timer {
+  display: flex;
+  align-items: center;
+  
 }
