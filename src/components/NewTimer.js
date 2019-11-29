@@ -11,12 +11,25 @@ export const NewTimer = ({ timers, setTimers }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
+  const submit = () => {
+    setTimers([
+      ...timers,
+      { label, initialSeconds: getSeconds(hours, minutes, seconds) }
+    ]);
+
+    setLabel("");
+    setHours(0);
+    setMinutes(0);
+    setSeconds(0);
+  };
+
   return (
     <div className="new-timer">
       <div>
         <input
           type="text"
           placeholder="turkey"
+          value={label}
           onChange={e => setLabel(e.target.value)}
         ></input>
       </div>
@@ -26,6 +39,7 @@ export const NewTimer = ({ timers, setTimers }) => {
             type="number"
             name="Hours"
             placeholder="0"
+            value={hours}
             min="0"
             max="60"
             onChange={e => setHours(e.target.value)}
@@ -37,6 +51,7 @@ export const NewTimer = ({ timers, setTimers }) => {
             type="number"
             name="Minutes"
             placeholder="0"
+            value={minutes}
             min="0"
             max="60"
             onChange={e => setMinutes(e.target.value)}
@@ -48,6 +63,7 @@ export const NewTimer = ({ timers, setTimers }) => {
             type="number"
             name="Seconds"
             placeholder="0"
+            value={seconds}
             min="0"
             max="60"
             onChange={e => setSeconds(e.target.value)}
@@ -56,16 +72,7 @@ export const NewTimer = ({ timers, setTimers }) => {
         </div>
       </div>
 
-      <button
-        onClick={() =>
-          setTimers([
-            ...timers,
-            { label, initialSeconds: getSeconds(hours, minutes, seconds) }
-          ])
-        }
-      >
-        Add Timer
-      </button>
+      <button onClick={submit}>Add Timer</button>
     </div>
   );
 };
