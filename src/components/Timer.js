@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const audio = new AudioContext();
-
-const beep = () => {
-  const oscillator = audio.createOscillator();
-  const gain = audio.createGain();
-  oscillator.connect(gain);
-  oscillator.frequency.value = 600;
-  oscillator.type = "sine";
-  gain.connect(audio.destination);
-  gain.gain.value = 0.1;
-  oscillator.start(audio.currentTime);
-  oscillator.stop(audio.currentTime + 1);
-};
+const sound = new Audio(
+  "https://cdn.glitch.com/ea7d6161-2ddf-493f-8b97-eb0e841775e3%2Fanalog-watch-alarm_daniel-simion.mp3?v=1575000876129"
+);
 
 const getTime = totalSeconds => {
   const hours = Math.floor(totalSeconds / 3600);
@@ -34,7 +24,7 @@ export const Timer = ({ label, initialSeconds }) => {
         setSeconds(seconds - 1);
 
         if (seconds <= 0) {
-          beep();
+          sound.play();
           setSeconds(0);
           setIsRunning(false);
           clearInterval(interval);
@@ -46,6 +36,19 @@ export const Timer = ({ label, initialSeconds }) => {
     return () => clearInterval(interval);
   }, [isRunning, seconds]);
 
+  const toggle = () => {
+    sound.pause();
+    sound.currentTime = 0;
+    setIsRunning(!isRunning);
+  };
+
+  const reset = () => {
+    sound.pause();
+    sound.currentTime = 0;
+    setSeconds(initialSeconds);
+    setIsRunning(false);
+  };
+
   return (
     <div className="timer">
       {label && <div>{label}</div>}
@@ -55,17 +58,8 @@ export const Timer = ({ label, initialSeconds }) => {
         {ss >= 0 ? `${ss} s` : ""}
       </div>
       <div>
-        <button onClick={() => setIsRunning(!isRunning)}>
-          {isRunning ? "Pause" : "Start"}
-        </button>
-        <button
-          onClick={() => {
-            setSeconds(initialSeconds);
-            setIsRunning(true);
-          }}
-        >
-          Reset
-        </button>
+        <button onClick={toggle}>{isRunning ? "Pause" : "Start"}</button>
+        <button onClick={reset}>Reset</button>
       </div>
     </div>
   );
