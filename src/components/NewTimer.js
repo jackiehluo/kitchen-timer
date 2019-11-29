@@ -4,7 +4,7 @@ const getSeconds = (hours, minutes, seconds) => {
   return hours * 3600 + minutes * 60 + seconds;
 };
 
-export const NewTimer = ({ timers, setTimers }) => {
+export const NewTimer = ({ sound, timers, setTimers }) => {
   const [label, setLabel] = useState("");
 
   const [hours, setHours] = useState(0);
@@ -12,6 +12,10 @@ export const NewTimer = ({ timers, setTimers }) => {
   const [seconds, setSeconds] = useState(0);
 
   const submit = () => {
+    sound.play();
+    sound.pause();
+    sound.currentTime = 0;
+    
     setTimers([
       ...timers,
       { label, initialSeconds: getSeconds(hours, minutes, seconds) }
