@@ -59,8 +59,8 @@ export const Timer = ({ initialSeconds }) => {
         </button>
         <button
           onClick={() => {
-            setSeconds(0);
-            setIsRunning(false);
+            setSeconds(initialSeconds);
+            setIsRunning(true);
           }}
         >
           Reset

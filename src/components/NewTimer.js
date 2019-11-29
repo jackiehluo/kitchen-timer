@@ -12,37 +12,42 @@ export const NewTimer = ({ timers, setTimers }) => {
   return (
     <div className="new-timer">
       <div>
-        <input
-          type="number"
-          name="Hours"
-          placeholder="00"
-          min="0"
-          max="60"
-          onChange={e => setHours(e.target.value)}
-        ></input>
-        hours
+        <input type="text"></input>label
       </div>
-      <div>
-        <input
-          type="number"
-          name="Minutes"
-          placeholder="00"
-          min="0"
-          max="60"
-          onChange={e => setMinutes(e.target.value)}
-        ></input>
-        minutes
-      </div>
-      <div>
-        <input
-          type="number"
-          name="Seconds"
-          placeholder="00"
-          min="0"
-          max="60"
-          onChange={e => setSeconds(e.target.value)}
-        ></input>
-        seconds
+      <div className="new-timer--times">
+        <div>
+          <input
+            type="number"
+            name="Hours"
+            placeholder="0"
+            min="0"
+            max="60"
+            onChange={e => setHours(e.target.value)}
+          ></input>
+          hours
+        </div>
+        <div>
+          <input
+            type="number"
+            name="Minutes"
+            placeholder="0"
+            min="0"
+            max="60"
+            onChange={e => setMinutes(e.target.value)}
+          ></input>
+          minutes
+        </div>
+        <div>
+          <input
+            type="number"
+            name="Seconds"
+            placeholder="0"
+            min="0"
+            max="60"
+            onChange={e => setSeconds(e.target.value)}
+          ></input>
+          seconds
+        </div>
       </div>
 
       <button

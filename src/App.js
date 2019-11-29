@@ -6,12 +6,12 @@ const App = () => {
   const [timers, setTimers] = useState([]);
 
   return (
-    <React.Fragment>
+    <div className="container">
       <NewTimer timers={timers} setTimers={setTimers} />
       {timers.map(timer => (
         <Timer initialSeconds={timer}></Timer>
       ))}
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 20px;
+  padding: 0;
   box-sizing: border-box;
   outline: none;
   font-family: Courier;
@@ -8,12 +8,16 @@
   color: white;
 }
 
+body {
+  padding: 100px;
+}
+
 button {
   height: 40px;
   padding: 4px 10px;
   margin: 4px;
-  background: none;
-  border: 2px solid #7CFFC4;
+  background: #60D394;
+  border: 2px solid white;
   border-radius: 5px;
 }
 
@@ -21,7 +25,8 @@ input {
   height: 40px;
   padding: 4px 10px;
   margin: 4px;
-  border: 2px solid #9CFFFA;
+  background: #5BC0EB;
+  border: 2px solid white;
   border-radius: 5px;
   font-size: 20px;
 }
@@ -30,8 +35,24 @@ input {
   color: white;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .new-timer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  
+}
+
+
+
+.new-timer--times {
+  display: flex;
+}
+
+.timer {
+  text-align: center;
 }
