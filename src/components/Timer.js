@@ -33,6 +33,9 @@ export const Timer = ({ label, initialSeconds }) => {
     } else if (!isRunning && seconds <= 0) {
       clearInterval(interval);
     }
+    sound.play();
+    sound.pause();
+    sound.currentTime = 0;
     return () => clearInterval(interval);
   }, [isRunning, seconds]);
 
