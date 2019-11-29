@@ -6,16 +6,12 @@ const beep = () => {
   const oscillator = audio.createOscillator();
   const gain = audio.createGain();
   oscillator.connect(gain);
-  oscillator.frequency.value = 400;
-  oscillator.type = "square";
+  oscillator.frequency.value = 600;
+  oscillator.type = "sine";
   gain.connect(audio.destination);
-  gain.gain.value = 5 * 0.01;
+  gain.gain.value = 0.1;
   oscillator.start(audio.currentTime);
   oscillator.stop(audio.currentTime + 1);
-  v.start(audio.currentTime);
-  v.stop(audio.currentTime + 1);
-  v.start(audio.currentTime);
-  v.stop(audio.currentTime + 1);
 };
 
 const getTime = totalSeconds => {
@@ -51,23 +47,17 @@ export const Timer = ({ initialSeconds }) => {
   }, [isRunning, seconds]);
 
   return (
-    <div className="app">
-      <div className="time">
-        {hh ? `${hh} h ` : ""}
-        {mm ? `${mm} min ` : ""}
-        {ss ? `${ss} sec` : ""}
+    <div className="timer">
+      <div>
+        {hh >= 0 ? `${hh} h ` : ""}
+        {mm >= 0 ? `${mm} m ` : ""}
+        {ss >= 0 ? `${ss} s` : ""}
       </div>
-      <div className="row">
-        <button
-          className={`button button-primary button-primary-${
-            isRunning ? "active" : "inactive"
-          }`}
-          onClick={() => setIsRunning(!isRunning)}
-        >
+      <div>
+        <button onClick={() => setIsRunning(!isRunning)}>
           {isRunning ? "Pause" : "Start"}
         </button>
         <button
-          className="button"
           onClick={() => {
             setSeconds(0);
             setIsRunning(false);

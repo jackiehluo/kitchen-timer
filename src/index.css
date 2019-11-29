@@ -1,9 +1,11 @@
 * {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   box-sizing: border-box;
   outline: none;
   font-family: Courier;
+  background: #E85F5C;
+  color: white;
 }
 
 button {
@@ -11,7 +13,7 @@ button {
   padding: 4px 10px;
   margin: 4px;
   background: none;
-  border: 2px solid lightgreen;
+  border: 2px solid #7CFFC4;
   border-radius: 5px;
 }
 
@@ -19,9 +21,13 @@ input {
   height: 40px;
   padding: 4px 10px;
   margin: 4px;
-  border: 2px solid pink;
+  border: 2px solid #9CFFFA;
   border-radius: 5px;
   font-size: 20px;
+}
+
+::placeholder {
+  color: white;
 }
 
 .new-timer {
