@@ -9,7 +9,7 @@ const getTime = (totalSeconds) => {
 
 export const Timer = ({ initialSeconds }) => {
   const [seconds, setSeconds] = useState(initialSeconds);
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   
   const [hh, mm, ss] = getTime(seconds);
 

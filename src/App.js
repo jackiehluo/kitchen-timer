@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <NewTimer />
+      <NewTimer timers={timers} setTimers={setTimers} />
       {timers.map(timer => (
         <Timer initialSeconds={timer}></Timer>
       ))}
