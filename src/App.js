@@ -9,7 +9,7 @@ const App = () => {
     <div className="container">
       <NewTimer timers={timers} setTimers={setTimers} />
       {timers.map(timer => (
-        <Timer initialSeconds={timer}></Timer>
+        <Timer {...timer}></Timer>
       ))}
     </div>
   );

@@ -21,7 +21,7 @@ const getTime = totalSeconds => {
   return [hours, minutes, seconds];
 };
 
-export const Timer = ({ initialSeconds }) => {
+export const Timer = ({ label, initialSeconds }) => {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(true);
 
@@ -48,7 +48,8 @@ export const Timer = ({ initialSeconds }) => {
 
   return (
     <div className="timer">
-      <div>
+      {label && <div>{label}</div>}
+      <div className="timer--times">
         {hh >= 0 ? `${hh} h ` : ""}
         {mm >= 0 ? `${mm} m ` : ""}
         {ss >= 0 ? `${ss} s` : ""}

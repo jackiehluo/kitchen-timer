@@ -5,6 +5,8 @@ const getSeconds = (hours, minutes, seconds) => {
 };
 
 export const NewTimer = ({ timers, setTimers }) => {
+  const [label, setLabel] = useState("");
+
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -12,7 +14,11 @@ export const NewTimer = ({ timers, setTimers }) => {
   return (
     <div className="new-timer">
       <div>
-        <input type="text"></input>label
+        <input
+          type="text"
+          placeholder="turkey"
+          onChange={e => setLabel(e.target.value)}
+        ></input>
       </div>
       <div className="new-timer--times">
         <div>
@@ -52,7 +58,10 @@ export const NewTimer = ({ timers, setTimers }) => {
 
       <button
         onClick={() =>
-          setTimers([...timers, getSeconds(hours, minutes, seconds)])
+          setTimers([
+            ...timers,
+            { label, initialSeconds: getSeconds(hours, minutes, seconds) }
+          ])
         }
       >
         Add Timer

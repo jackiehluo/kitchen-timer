@@ -32,6 +32,8 @@ input {
 }
 
 ::placeholder {
+  font-style: italic;
+  opacity: 80%;
   color: white;
 }
 
@@ -47,7 +49,9 @@ input {
   align-items: center;
 }
 
-
+.new-timer > * {
+  margin: 20px;
+}
 
 .new-timer--times {
   display: flex;
@@ -55,4 +59,19 @@ input {
 
 .timer {
   text-align: center;
+}
+
+.timer > * {
+  margin: 20px;
+}
+
+.timer--times {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 4px 10px;
+  background: #52489C;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 20px;
 }
