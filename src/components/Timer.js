@@ -8,7 +8,7 @@ const getTime = totalSeconds => {
   return [hours, minutes, seconds];
 };
 
-export const Timer = ({ sound, label, initialSeconds }) => {
+export const Timer = ({ sound, label, initialSeconds, cancel }) => {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(true);
 
@@ -57,6 +57,7 @@ export const Timer = ({ sound, label, initialSeconds }) => {
       <div>
         <button onClick={toggle}>{isRunning ? "Pause" : "Start"}</button>
         <button onClick={reset}>Reset</button>
+        <button onClick={cancel}>Cancel</button>
       </div>
     </div>
   );

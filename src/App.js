@@ -12,8 +12,8 @@ const App = () => {
   return (
     <div className="container">
       <NewTimer sound={sound} timers={timers} setTimers={setTimers} />
-      {timers.map(timer => (
-        <Timer key={`${timer.label}-${timer.seconds}`} sound={sound} {...timer}></Timer>
+      {timers.map((timer, idx) => (
+        <Timer key={`${timer.label}-${timer.seconds}`} sound={sound} {...timer} cancel={() => setTimers(timers.splice(idx, 0))}></Timer>
       ))}
     </div>
   );
