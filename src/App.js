@@ -13,7 +13,16 @@ const App = () => {
     <div className="container">
       <NewTimer sound={sound} timers={timers} setTimers={setTimers} />
       {timers.map((timer, idx) => (
-        <Timer key={`${timer.label}-${timer.seconds}`} sound={sound} {...timer} cancel={() => setTimers(timers.splice(idx, 0))}></Timer>
+        <Timer
+          key={`${timer.label}-${timer.seconds}`}
+          sound={sound}
+          cancel={() => {
+            const newTimers = [...timers];
+            newTimers.splice(idx, 1);
+            setTimers(newTimers);
+          }}
+          {...timer}
+        />
       ))}
     </div>
   );
